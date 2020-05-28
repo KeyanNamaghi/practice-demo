@@ -48,14 +48,6 @@ public class Speaker {
 
     }
 
-    public byte[] getSpealer_photo() {
-        return speaker_photo;
-    }
-
-    public void setSpealer_photo(byte[] spealer_photo) {
-        this.speaker_photo = spealer_photo;
-    }
-
     public List<Session> getSessions() {
         return sessions;
     }
