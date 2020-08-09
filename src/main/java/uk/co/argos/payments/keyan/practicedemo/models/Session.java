@@ -17,11 +17,11 @@ public class Session {
     private String session_description;
     private Integer session_length;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "session_speakers",
-//            joinColumns = @JoinColumn(name = "session_id"),
-//            inverseJoinColumns = @JoinColumn(name = "speaker_id"))
+    @ManyToMany
+    @JoinTable(
+            name = "session_speakers",
+            joinColumns = @JoinColumn(name = "session_id"),
+            inverseJoinColumns = @JoinColumn(name = "speaker_id"))
     private List<Speaker> speakers;
 
     public Session(){
