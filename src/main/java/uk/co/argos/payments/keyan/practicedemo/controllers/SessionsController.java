@@ -2,10 +2,17 @@ package uk.co.argos.payments.keyan.practicedemo.controllers;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import uk.co.argos.payments.keyan.practicedemo.models.Session;
 import uk.co.argos.payments.keyan.practicedemo.repositories.SessionRepository;
 
+import java.time.Instant;
 import java.util.List;
 
 @RestController
@@ -27,6 +34,9 @@ public class SessionsController {
 
     @PostMapping
     public Session create(@RequestBody final Session session){
+        Instant instant = Instant.now();
+        long timeStampSeconds = instant.getEpochSecond();
+        session.setTime(timeStampSeconds);
         return sessionRepository.saveAndFlush(session);
     }
 

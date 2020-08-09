@@ -16,6 +16,7 @@ public class Session {
     private String session_name;
     private String session_description;
     private Integer session_length;
+    private Long time;
 
     @ManyToMany
     @JoinTable(
@@ -66,6 +67,14 @@ public class Session {
 
     public void setSession_length(Integer session_length) {
         this.session_length = session_length;
+    }
+
+    public Long getTime() {
+        return time;
+    }
+
+    public void setTime(Long time) {
+        this.time = time;
     }
 
 }
